@@ -308,34 +308,37 @@ export class InitJsService {
                         }
                     };
                 }
+
                 function getLoc() {
-                    var startPos;
                     var geoOptions = {
                         maximumAge: 5 * 60 * 1000,
-                        timeout: 10 * 1000
+                        timeout: 30 * 1000
                     };
 
-                    var geoSuccess = function(position) {
-                        startPos = position;
-                        document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-                        document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+                    var geoSuccess = function (position) {
+                        document.getElementById('startLat').innerHTML = position.coords.latitude;
+                        document.getElementById('startLon').innerHTML = position.coords.longitude;
 
                         // Сюда вставить запросы к гуглу, что бы определить ближайший город.
-                        document.getElementById('startCity').innerHTML = startPos.coords.latitude + ',' + startPos.coords.longitude;
+                        document.getElementById('startCity').innerHTML = findCity(lat, lon);
                         useLoc();
                     };
-                    var geoError = function(error) {
+
+                    var geoError = function (error) {
                         // Ошибки:
                         //   0: unknown error
                         //   1: permission denied
                         //   2: position unavailable (error response from location provider)
                         //   3: timed out
                         console.log('Error occurred. Error code: ' + error.code);
-                        document.getElementsByClassName('loc-four')[0].style.display = "none";
-                        document.getElementsByClassName('loc-three')[0].style.display = "block";
+                        document.getElementsByClassName('loc-four')[0].style.display = 'none';
+                        document.getElementsByClassName('loc-three')[0].style.display = 'block';
                     };
 
                     var isOneASk = true;
+
+                    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+                    /*
                     window.onscroll = function() {
                         var scrolled = window.pageYOffset || document.documentElement.scrollTop,
                             toScroll = document.getElementsByClassName('block-loc')[0].clientHeight - 70;
@@ -349,18 +352,55 @@ export class InitJsService {
                             }
                         }
                     };
+                    */
                 }
-                function useLoc(){
+
+                function useLoc() {
                     var city = document.getElementById('startCity').innerHTML;
-                    document.getElementsByClassName('loc-two')[0].innerHTML = '<img src="/assets/img/loc-icon.png">' + city;
-                    document.getElementsByClassName('loc-two')[0].style.display = "block";
-                    document.getElementsByClassName('loc-four')[0].style.display = "none";
-                    document.getElementsByClassName('loc-three')[0].style.display = "none";
+                    document.getElementsByClassName('loc-two')[0].innerHTML = '<img src="/assets/img/loc-icon.png"><span>' + city + '</span>';
+                    document.getElementsByClassName('loc-two')[0].style.display = 'block';
+                    document.getElementsByClassName('loc-four')[0].style.display = 'none';
+                    document.getElementsByClassName('loc-three')[0].style.display = 'none';
+                }
+
+                function findCity(lat, lon) {
+                    var arr = [{city: 'New Jersey', lat: 40.0697397, lon: -75.8453783},
+                        {city: 'New York', lat: 40.7322595, lon: -74.1669599},
+                        {city: 'Boston', lat: 42.3144556, lon: -71.0403236},
+                        {city: 'Memphis', lat: 35.1293862, lon: -90.1108703}];
+                    var min = distance(arr[0].lat, arr[0].lon, lat, lon);
+                    var q = 0;
+                    for (var i = 1; i < arr.length; i++) {
+                        var d = distance(arr[i].lat, arr[i].lon, lat, lon);
+
+                        if (d < min) {
+                            min = d;
+                            q = i;
+                        }
+                    }
+                    return arr[q].city;
+                }
+
+                function distance(lat1, lon1, lat2, lon2, unit) {
+                    var radlat1 = Math.PI * lat1 / 180;
+                    var radlat2 = Math.PI * lat2 / 180;
+                    var theta = lon1 - lon2;
+                    var radtheta = Math.PI * theta / 180;
+                    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+                    dist = Math.acos(dist);
+                    dist = dist * 180 / Math.PI;
+                    dist = dist * 60 * 1.1515;
+                    if (unit == 'K') {
+                        dist = dist * 1.609344;
+                    }
+                    if (unit == 'N') {
+                        dist = dist * 0.8684;
+                    }
+                    return dist;
                 }
             })();
         }, 0);
     }
-
 
     static initCarousel() {
         setTimeout(function () {

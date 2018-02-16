@@ -98,6 +98,10 @@ div.menu-active:after {
     margin-bottom: 20px;
 }
 
+#ask-contain img {
+    display: none;
+}
+
 #ask-no {
     position: relative;
     float: left;
@@ -228,6 +232,10 @@ div.menu-active:after {
     text-transform: uppercase;
 }
 
+.loc-two img, .loc-two span {
+    cursor: pointer;
+}
+
 .loc-two, .loc-three {
     display: none;
 }
@@ -319,7 +327,7 @@ div.menu-active:after {
     font-size: 14px;
 }
 
-.all-loc--content .loc-name {
+.all-loc--content p.loc-name {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 700;
