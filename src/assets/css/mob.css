@@ -465,7 +465,7 @@
     .block-one-mob-up {
         display: block;
         background: url("/assets/img/block-one-mob-up.png") no-repeat center center;
-        background-size: contain;
+        background-size: cover;
         height: 100%;
         opacity: 0.3;
     }
