@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 declare var HTMLElement: any;
 declare var window: any;
 declare var document: any;
+declare var navigator: any;
 
 @Injectable()
 export class InitJsService {
@@ -338,21 +339,6 @@ export class InitJsService {
                     var isOneASk = true;
 
                     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-                    /*
-                    window.onscroll = function() {
-                        var scrolled = window.pageYOffset || document.documentElement.scrollTop,
-                            toScroll = document.getElementsByClassName('block-loc')[0].clientHeight - 70;
-                        if (document.getElementsByClassName('block-one')[0].clientHeight > document.documentElement.clientHeight) {
-                            toScroll += document.getElementsByClassName('block-one')[0].clientHeight - document.documentElement.clientHeight;
-                        }
-                        if (scrolled >= toScroll) {
-                            if (isOneASk) {
-                                navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
-                                isOneASk = false;
-                            }
-                        }
-                    };
-                    */
                 }
 
                 function useLoc() {
@@ -368,10 +354,10 @@ export class InitJsService {
                         {city: 'New York', lat: 40.7322595, lon: -74.1669599},
                         {city: 'Boston', lat: 42.3144556, lon: -71.0403236},
                         {city: 'Memphis', lat: 35.1293862, lon: -90.1108703}];
-                    var min = distance(arr[0].lat, arr[0].lon, lat, lon);
+                    var min = distance(arr[0].lat, arr[0].lon, lat, lon, 'M');
                     var q = 0;
                     for (var i = 1; i < arr.length; i++) {
-                        var d = distance(arr[i].lat, arr[i].lon, lat, lon);
+                        var d = distance(arr[i].lat, arr[i].lon, lat, lon, 'M');
 
                         if (d < min) {
                             min = d;
