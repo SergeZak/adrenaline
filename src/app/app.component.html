@@ -1,0 +1,78 @@
+<header>
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/"><img src="/assets/img/logo.png"></a>
+    </div>
+    <div class="menu">
+      <div><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></div>
+      <!--<div><a routerLink="/trampoline-park" routerLinkActive="active">Trampoline park</a></div>-->
+      <div class="menu-tramp" routerLinkActive="active">
+        Trampoline park
+        <div class="tramp-list">
+          <div class="tramp-list--item"><a routerLink="/trampoline-park" routerLinkActive="active">Park</a></div>
+          <div class="tramp-list--item"><a routerLink="/trampoline-parties" routerLinkActive="active">Parties</a></div>
+        </div>
+      </div>
+      <div><a routerLink="/escape-room" routerLinkActive="active">Escape rooms</a></div>
+      <div class="menu-loc">
+        Locations
+        <div class="loc-list">
+          <div id="find-park" class="loc-list--item" link="/">FIND A PARK</div>
+          <div class="loc-list--item" link="/">NEW JERSEY</div>
+          <div class="loc-list--item" link="/">NEW YORK</div>
+          <div class="loc-list--item" link="/">BOSTON</div>
+          <div class="loc-list--item" link="/">MEMPHIS</div>
+          <div class="loc-list--item" link="/">NEW YORK</div>
+        </div>
+      </div>
+      <div><a routerLink="/blog" routerLinkActive="active">Blog</a></div>
+    </div>
+    <div id="ask">
+      <div id="ask-contain" class="">
+        <h3></h3>
+        <div style="width: 100%; text-align: center;">
+          <div style="display: inline-block">
+            <div id="ask-no">No</div>
+            <a id="ask-yes" href="/">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none">
+    <div id="startLat"></div>
+    <div id="startLon"></div>
+    <div id="startCity"></div>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer [ngClass]="{'footer-dark': isDarkFooter}" >
+  <div class="container">
+    <div class="footer-logo">
+      <img src="/assets/img/footer-logo.png">
+    </div>
+    <div class="footer-text">
+      <div class="col-md-6">
+        <p class="footer-name">Adrenaline Entertainment Centers
+          CORPORATE HEADQUARTERS</p>
+        <p class="footer-contact"><img src="/assets/img/icon-loc.png">1234 Lorem St., Suite 58
+        <p>
+        <p class="footer-contact-add-line">Beaverville, Florida 12345</p>
+        <p class="footer-contact"><img src="/assets/img/icon-phone.png">123-456-7890</p>
+        <p class="footer-contact"><img src="/assets/img/icon-email.png">email@domain.com</p>
+      </div>
+      <div class="col-md-6 footer-right">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales tortor quis ante porta
+        venenatis. Suspendisse sollicitudin, dolor sed dignissim bibendum, sapien sem laoreet arcu, non mollis
+        neque odio porttitor purus.
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="copyright">
+  <div class="container">
+    <p>Adrenaline Entertainment Centers © 2018</p>
+  </div>
+</div>
