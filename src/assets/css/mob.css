@@ -16,6 +16,7 @@
         top: 300px;
     }
 }
+
 @media (max-height: 690px) {
     .home-arrow {
         display: none;
@@ -51,6 +52,14 @@
         width: 360px;
     }
 
+    .block-play-parties .play-two-up {
+        display: block;
+        top: 20px;
+        width: 200px;
+        right: 20px;
+        left: auto;
+    }
+
     .play-three-up {
         display: none;
     }
@@ -65,9 +74,11 @@
         float: none;
         margin-top: 20px;
     }
+
     .block-parties > .container {
         position: static;
     }
+
     .parties-up {
         right: 0;
     }
@@ -313,7 +324,7 @@
 @media (max-width: 810px) {
     .button-find {
         display: block;
-        margin-left:  auto;
+        margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
     }
@@ -323,6 +334,12 @@
     .left-rect, .right-rect {
         background-color: rgba(0, 0, 0, 0.7);
         position: absolute;
+    }
+
+    .block-parties .left-rect {
+        background-color: rgba(0, 0, 0, 0.6);
+        top: auto;
+        bottom: 0;
     }
 
     .left-rect {
@@ -451,7 +468,7 @@
         background: #1b1b1b;
     }
 
-    .block-one-mob{
+    .block-one-mob {
         position: absolute;
         top: 0;
         left: 0;
@@ -509,7 +526,6 @@
         margin-top: 10px;
     }
 
-
     .play-one .play-text .play-link {
         left: auto;
         float: right;
@@ -519,7 +535,7 @@
 @media (max-width: 670px) {
     .loc-city {
         display: block;
-        margin-left:  auto;
+        margin-left: auto;
         margin-right: auto;
         margin-top: 10px;
     }
@@ -577,6 +593,11 @@
     .block-one .left-rect h3, .block-one .right-rect h3 {
         font-size: 28px;
     }
+
+    .block-parties .left-rect {
+        top: auto;
+        bottom: 0;
+    }
 }
 
 @media (max-width: 424px) {
@@ -607,6 +628,7 @@
         top: 355px;
         height: 290px;
     }
+
     .left-rect, .right-rect {
         max-width: 100%;
     }
@@ -633,19 +655,43 @@
     .block-one .left-rect a {
         margin-top: 10px;
     }
+
+    .block-play-parties .play-two .play-text {
+        top: 220px;
+    }
 }
 
-@media (max-width: 357px) {
-    .block-play-parties .play-two .play-text {
-        top: 100px;
-    }
+@media (max-width: 360px) {
     .block-play-parties .play-one .play-text {
         padding-top: 30px;
     }
+
     .block-parties-rules {
         padding-top: 20px;
     }
+
     .play-one .play-text .play-link {
         margin-top: 0;
     }
+
+    .block-play-parties .play-two {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    .block-play-parties .play-two .play-text {
+        top: 20px;
+    }
+
+    .block-play-parties .play-two .play-text, .block-play-parties .play-two .play-text h3 {
+        text-align: center;
+    }
+
+    .block-play-parties .play-two-up {
+        position: static;
+        display: inline-block;
+        left: auto;
+        right: auto;
+    }
+
 }

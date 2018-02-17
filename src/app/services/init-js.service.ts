@@ -331,14 +331,31 @@ export class InitJsService {
                         //   2: position unavailable (error response from location provider)
                         //   3: timed out
                         console.log('Error occurred. Error code: ' + error.code);
+
+                        var locContain: any = document.getElementById('ask-loc-contain'),
+                            locClose: any = document.getElementById('ask-button-close'),
+                            locClick: any = document.getElementById('click-find'),
+                            locFind: any = document.getElementById('ask-button-find');
+
+                        locClick.onclick = function (ev) {
+                            locContain.classList.add('slideDown');
+                        };
+
+                        locClose.onclick = function (ev) {
+                            locContain.classList.remove('slideDown');
+                        };
+
+                        locFind.onclick = function (ev) {
+                            locContain.classList.remove('slideDown');
+                        };
+
                         document.getElementsByClassName('loc-four')[0].style.display = 'none';
                         document.getElementsByClassName('loc-three')[0].style.display = 'block';
                     };
 
-                    var isOneASk = true;
-
                     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
                     /*
+                    var isOneASk = true;
                     window.onscroll = function() {
                         var scrolled = window.pageYOffset || document.documentElement.scrollTop,
                             toScroll = document.getElementsByClassName('block-loc')[0].clientHeight - 70;
@@ -381,7 +398,7 @@ export class InitJsService {
                     return arr[q].city;
                 }
 
-                function distance(lat1, lon1, lat2, lon2, unit) {
+                function distance(lat1, lon1, lat2, lon2) {
                     var radlat1 = Math.PI * lat1 / 180;
                     var radlat2 = Math.PI * lat2 / 180;
                     var theta = lon1 - lon2;
@@ -390,14 +407,9 @@ export class InitJsService {
                     dist = Math.acos(dist);
                     dist = dist * 180 / Math.PI;
                     dist = dist * 60 * 1.1515;
-                    if (unit == 'K') {
-                        dist = dist * 1.609344;
-                    }
-                    if (unit == 'N') {
-                        dist = dist * 0.8684;
-                    }
                     return dist;
                 }
+
             })();
         }, 0);
     }
