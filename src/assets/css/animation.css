@@ -217,7 +217,7 @@
     }
 }
 
-#ask-contain.slideDown{
+#ask-contain.slideDown, #ask-loc-contain.slideDown{
     animation-name: slideDown;
     -webkit-animation-name: slideDown;
 

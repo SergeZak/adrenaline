@@ -332,11 +332,27 @@ export class InitJsService {
                         //   2: position unavailable (error response from location provider)
                         //   3: timed out
                         console.log('Error occurred. Error code: ' + error.code);
+
+                        var locContain: any = document.getElementById('ask-loc-contain'),
+                            locClose: any = document.getElementById('ask-button-close'),
+                            locClick: any = document.getElementById('click-find'),
+                            locFind: any = document.getElementById('ask-button-find');
+
+                        locClick.onclick = function (ev) {
+                            locContain.classList.add('slideDown');
+                        };
+
+                        locClose.onclick = function (ev) {
+                            locContain.classList.remove('slideDown');
+                        };
+
+                        locFind.onclick = function (ev) {
+                            locContain.classList.remove('slideDown');
+                        };
+
                         document.getElementsByClassName('loc-four')[0].style.display = 'none';
                         document.getElementsByClassName('loc-three')[0].style.display = 'block';
                     };
-
-                    var isOneASk = true;
 
                     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
                 }
@@ -384,6 +400,7 @@ export class InitJsService {
                     }
                     return dist;
                 }
+
             })();
         }, 0);
     }

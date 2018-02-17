@@ -54,9 +54,11 @@ div.menu-active:after {
     height: 3px;
     background-color: #92dd02;
 }
+
 .menu-loc, .menu-tramp {
     cursor: pointer;
 }
+
 .loc-list, .tramp-list {
     position: absolute;
     top: 30px;
@@ -66,17 +68,40 @@ div.menu-active:after {
     display: none;
 }
 
-
 .loc-list--item, .tramp-list--item {
     margin-bottom: 10px;
     cursor: pointer;
 }
 
-#ask {
+#ask, #ask-loc {
     position: fixed;
     left: 0;
     top: 80px;
     width: 100vw;
+}
+
+.ask-loc-zip, .ask-loc-city, .ask-loc-buttons {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+#ask-button-find, #ask-button-close {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+    border: solid 2px #92dd02;
+    background-color: #92dd02;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#ask-button-close {
+    border: solid 2px #cbad66;
+    color: #cbad66;
+    background: none;
 }
 
 #ask-contain {
@@ -88,7 +113,16 @@ div.menu-active:after {
     display: none;
 }
 
-#ask-contain h3 {
+#ask-loc-contain {
+    background-color: #1b1b1b;
+    padding: 25px 15px;
+    width: 480px;
+    max-width: 100%;
+    margin: auto;
+    display: none;
+}
+
+#ask-contain h3, #ask-loc-contain h3 {
     font-family: Anton, sans-serif;
     font-size: 24px;
     letter-spacing: 2px;
@@ -96,6 +130,19 @@ div.menu-active:after {
     color: #92dd02;
     text-transform: uppercase;
     margin-bottom: 20px;
+}
+
+#ask-loc-contain h3 {
+    font-size: 24px;
+}
+
+#ask-loc-contain h2 {
+    font-family: Anton, sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 15px;
+    text-transform: uppercase;
 }
 
 #ask-contain img {
@@ -272,7 +319,11 @@ div.menu-active:after {
     letter-spacing: 1px;
 }
 
-.block-loc p.loc-two img, .block-loc p.loc-four img {
+#click-find {
+    cursor: pointer;
+}
+
+.block-loc p.loc-two img, .block-loc p.loc-three img, .block-loc p.loc-four img {
     margin-right: 9px;
     padding-bottom: 6px;
 }
@@ -759,6 +810,7 @@ footer {
     background: url("../img/parties.png") no-repeat center center;
     background-size: cover;
     min-height: 605px;
+    position: relative;
 }
 
 .block-parties > .container {
@@ -852,7 +904,7 @@ footer {
 }
 
 .block-blog-post {
-    padding-top: 40px;
+    padding-top: 110px;
 }
 
 .block-blog-post > .container > img {
@@ -1153,13 +1205,13 @@ a.escape-add--link:focus, a.escape-add--link:active, a.escape-add--link:hover {
     color: #fff;
 }
 
-.menu > div{
-  margin-left: 0;
+.menu > div {
+    margin-left: 0;
 }
 
 .menu .menu-loc {
-  margin-left: 35px;
-  margin-right: 22px;
+    margin-left: 35px;
+    margin-right: 22px;
 }
 
 .menu .menu-tramp {
@@ -1172,18 +1224,20 @@ a.escape-add--link:focus, a.escape-add--link:active, a.escape-add--link:hover {
 }
 
 header .menu > div > a {
-  margin-left: 24px;
-  padding: 0 11px 7px;
+    margin-left: 24px;
+    padding: 0 11px 7px;
 }
 
 header .menu > div > a.active, header .menu .menu-tramp.active {
-  border-bottom: 3px solid #91dd00;
+    border-bottom: 3px solid #91dd00;
 }
 
-.menu-loc + div > a{
-  /*padding-right: 0;*/
+.menu-loc + div > a {
+    /*padding-right: 0;*/
 }
 
 .block-one, .block-blog {
     padding-top: 70px;
 }
+
+.
