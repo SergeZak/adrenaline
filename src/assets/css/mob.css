@@ -294,8 +294,8 @@
     .parties-up-mob {
         display: block;
         position: absolute;
-        top: 77px;
-        right: 0;
+        top: 64px;
+        /*right: 0;*/
         z-index: 0;
     }
 
@@ -331,6 +331,11 @@
 }
 
 @media (max-width: 767px) {
+    .block-parties{
+      min-height: 415px;
+      overflow: hidden;
+    }
+
     .left-rect, .right-rect {
         background-color: rgba(0, 0, 0, 0.7);
         position: absolute;
