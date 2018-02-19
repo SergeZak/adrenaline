@@ -385,6 +385,7 @@
 
     .block-park {
         min-height: 405px;
+      overflow: hidden;
     }
 
     .left-arrow {
